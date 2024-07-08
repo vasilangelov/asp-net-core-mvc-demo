@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form method="post">
+        <div>
+            Vehicle number:
+            <input name="VehicleNumber" />
+        </div>
+
+        <div>
+            Duration:
+            <input type="datetime-local" name="StartDate" />
+            <input type="datetime-local" name="EndDate" />
+        </div>
+
+        <div>
+            @foreach (var spot in Model)
+            {
+                <div>
+                    <input type="radio" name="ParkingId" value="@spot.Id" disabled="@spot.Occupied" />
+                    @spot.Id
+                </div>
+            }
+        </div>
+
+        <button type="submit">SUBMIT</button>
+    </form>
+</div>
